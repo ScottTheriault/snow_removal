@@ -4,7 +4,7 @@
 
 	$error = '';
 	if (!$util->isBlank($name) && !$util->isBlank($password)) {
-		//TODO get Loggin
+		$user_repo = getUserRepo();
 	} else  if (!$util->isBlank($name)) {
 		$error = "password required";
 	} else if (!$util->isBlank($password)) {
