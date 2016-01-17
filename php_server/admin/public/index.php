@@ -1,5 +1,4 @@
 <?php
-	require_once(__DIR__ . '/config.php');
 	require_once(__DIR__ . '/setup.php');
 
 	require_once($CONTROLLER_DIR . '/loggin.php');

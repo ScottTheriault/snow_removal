@@ -1,5 +1,5 @@
 <form>
-	<p><?php echo $error;?></p>
+	<p class="error"><?php echo $error;?></p>
 	<p>UN: </p>
 	<input name="user_name" placeholder="user name"/>
 	<p>Password: </p>
