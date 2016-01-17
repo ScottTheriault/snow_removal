@@ -3,4 +3,5 @@
 
 	$CONTROLLER_DIR = __DIR__ . '/../controller/';
 	$TEMPLATE_DIR = __DIR__ . '/../templates/';
+	$UTIL_DIR = __DIR__ . '/../util/';
 ?>
