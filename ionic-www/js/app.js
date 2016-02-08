@@ -53,9 +53,9 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services', '
   .state('tab.run', {
       url: '/run',
       views: {
-        'tab-chats': {
+        'tab-run': {
           templateUrl: 'templates/tab-run.html',
-          controller: 'ChatsCtrl'
+          controller: 'RunCtrl'
         }
       }
     })
