@@ -18,6 +18,34 @@ angular.module('starter.controllers', [])
 	}
 })
 
-.controller('RunCtrl', function($scope, Chats) {
+.controller('RunCtrl', function($scope, Chats, $timeout, $localstorage) {
+	$scope.tracking=false;
+	var trackingRunning = false;
 
+	$scope.unSentPositions = $localstorage.getObject('unSentPositions');
+	if (isBlank($scope.unSentPositions)) {
+		$scope.unSentPositions = [];
+	}
+
+	$scope.startTracking = function() {
+		$scope.tracking=true;
+		if (!trackingRunning) {
+			getPosition();
+		}
+	}
+	$scope.stopTracking = function() {
+		$scope.tracking=false;
+	}
+
+	function getPosition() {
+		navigator.geolocation.getCurrentPosition(function(position) {
+			alert(position.coords.latitude);
+			alert(position.coords.longitude);
+		});
+		if ($scope.tracking) {
+			$timeout(function() {
+				getPosition()
+			}, 300000);
+		}
+	}
 })

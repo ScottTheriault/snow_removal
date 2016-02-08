@@ -3,7 +3,8 @@
 		<br/>
 		<div align="center">
 			<button ng-if="!tracking" ng-click="startTracking()">Start</button>
-			<button ng-if="tracking" ng-click="endTracking()">End</button>
+			<button ng-if="tracking" ng-click="stopTracking()">Stop</button>
+			{{$scope.unSentPositions}}
 		</div>
 	</ion-content>
 </ion-view>
