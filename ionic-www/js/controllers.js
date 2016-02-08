@@ -1,16 +1,24 @@
+function isBlank(input) {
+	return typeof input === 'undefined' || input === null || input === '';
+}
 angular.module('starter.controllers', [])
 
-.controller('LoginCtrl', function($scope) {})
+.controller('LoginCtrl', function($scope, $state, $localstorage) {
+	$scope.truck = $localstorage.getObject('truck');
+
+	if (isBlank($scope.truck) || isBlank($scope.truck.number)) {
+		$scope.truck = {};
+	} else {
+		$state.go('tab.run');
+	}
+
+	$scope.setTruck = function() {
+		$localstorage.setObject('truck', $scope.truck);
+		$state.go('tab.run');
+	}
+})
 
 .controller('ChatsCtrl', function($scope, Chats) {
-  // With the new view caching in Ionic, Controllers are only called
-  // when they are recreated or on app start, instead of every page change.
-  // To listen for when this page is active (for example, to refresh data),
-  // listen for the $ionicView.enter event:
-  //
-  //$scope.$on('$ionicView.enter', function(e) {
-  //});
-
   $scope.chats = Chats.all();
   $scope.remove = function(chat) {
     Chats.remove(chat);
